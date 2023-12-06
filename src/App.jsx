@@ -2,6 +2,7 @@
 import { useFormik } from "formik"; */
 import ContainerForm from './components/ContainerForm'
 import Header from './components/Header'
+import ListTask from './components/ListTask'
 /* import Footer from './components/Footer' */
 
 
@@ -10,6 +11,7 @@ function App() {
     <>
       <Header />
       <ContainerForm />
+      <ListTask />
       {/* <Footer /> */}
     </>
   )
