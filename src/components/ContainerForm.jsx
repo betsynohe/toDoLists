@@ -1,11 +1,12 @@
-import { Box, Container } from '@chakra-ui/react'
+import { Box, Container, Center } from '@chakra-ui/react'
 import Form from "./Form";
 import SelectForm from './SelectForm';
 import Button from './Button';
 
 function ContainerForm ({setForm, setSelectForm, setButtonForm}) {
     return (
-        <Box display='flex' justifyContent='center' alignItems='center' flexDirection='column' mt='50px'>
+        <Center>
+            <Box bg='#c5f9f9' display='flex' justifyContent='center' alignItems='center' flexDirection='column' mt='50px'>
             <Box display='flex'>
                 <Form setForm={setForm} />
                 <SelectForm setSelectForm={setSelectForm} />
@@ -15,6 +16,8 @@ function ContainerForm ({setForm, setSelectForm, setButtonForm}) {
             </Container>
             
         </Box>
+        </Center>
+        
     
     )
 }
