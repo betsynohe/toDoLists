@@ -1,29 +1,39 @@
 import { List, ListItem, ListIcon, Box, Button, Stack } from '@chakra-ui/react'
 import { AttachmentIcon, EditIcon, DeleteIcon } from '@chakra-ui/icons'
 import { useState } from 'react';
+import ModalDelete from './ModalDelete';
 
 function ListTask({ task, id, setAllNotes, value, onCheckButtonClick }) {
-    /* const [openModal, setOpenModal] = useState(false); */
+    const [openModal, setOpenModal] = useState(false);
     const [check, setCheck] = useState(value === "complete");
 
     const handleButtonCheck = () => {
         setCheck(!check);
         onCheckButtonClick(id);
     };
+
+    const handleOpenModal = () => {
+        setOpenModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
     return (
         <List id={id} display='flex' mt='10px' justifyContent='space-between'>
-            <ListItem display='flex' alignItems='center'>
-                <ListIcon as={AttachmentIcon} color='black' mr='10px' ml='10px' className={ check ? "bg-[#cccccc] w-full text-xl line-through flex justify-between" : "bg-white w-full text-xl flex justify-between"}/>
+            <ListItem display='flex' alignItems='center' style={{ textDecoration: check ? 'line-through' : 'none', color: check ? 'red' : 'black' }}>
+                <ListIcon as={AttachmentIcon} color='black' mr='10px' ml='10px' />
                 {task}
             </ListItem>
             <Box>
                 <Stack direction='row'>
-                    <Button id={id} leftIcon={<EditIcon />} colorScheme='black' size='sm' variant='outline' className={ check ? "bg-[#cccccc] min-w-[80px] px-0 h-full border-l-2 border-[#D99951]" : "bg-[#D99951] min-w-[80px] "} onClick={handleButtonCheck}>
+                    <Button onClick={handleButtonCheck} leftIcon={<EditIcon />} colorScheme='black' size='sm' variant='outline' style={{ textDecoration: check ? 'line-through' : 'none', color: check ? 'red' : 'black' }} >
                         Completar
                     </Button>
-                    <Button rightIcon={<DeleteIcon />} colorScheme='black' size='sm' variant='outline'>
+                    <Button onClick={handleOpenModal} rightIcon={<DeleteIcon />} colorScheme='black' size='sm' variant='outline'>
                         Eliminar
                     </Button>
+                    <ModalDelete task={task} id={id} setAllNotes={setAllNotes} isOpen={openModal} onClose={handleCloseModal}/>
                 </Stack>
             </Box>
         </List>

@@ -20,7 +20,8 @@ export default function Form({ setSelectedFilter, setAllNotes }) {
         }
     };
     return (
-        <FormControl onSubmit={handleSubmit} display="flex" m='30px' flexDirection='column'>
+        <form onSubmit={handleSubmit}>
+            <FormControl  display="flex" m='30px' flexDirection='column'>
             <Box display='flex'>
                 <FormLabel display="flex" mr='20px' alignItems="center">Agregue Nueva Tarea</FormLabel>
                 <Input onChange={handleChange} variant='filled' borderColor='black' htmlSize={30} width='auto' type='text' name="tarea" value={task} placeholder="Agregue la tarea" />
@@ -32,6 +33,8 @@ export default function Form({ setSelectedFilter, setAllNotes }) {
                 </ButtonChakra>
             </FormControl>
         </FormControl>
+        </form>
+        
     )
 }
 

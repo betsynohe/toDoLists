@@ -1,4 +1,4 @@
-import { Box, Card, Center, CardBody, Stack, Heading, StackDivider } from '@chakra-ui/react'
+import { Box, Card, Center, CardBody, Stack, Heading, StackDivider, Text } from '@chakra-ui/react'
 import Form from "./Form";
 import { useState } from 'react';
 import ListTask from './ListTask';
@@ -41,6 +41,7 @@ function ContainerForm() {
                 <CardBody>
                     <Stack divider={<StackDivider />} spacing='4'>
                         <Box>
+                        <Text fontSize='3xl' textAlign='center'>Lista de tareas</Text>
                             <Heading size='xs' textTransform='uppercase'>
                                 {filteredElements.map((note) => {
                                     return (

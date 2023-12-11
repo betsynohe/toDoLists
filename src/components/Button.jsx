@@ -8,7 +8,6 @@ function Button() {
                 Agregar
             </ButtonChakra>
         </FormControl>
-    
     )
 }
 export default Button
