@@ -6,9 +6,9 @@ import React from 'react'
 
 export default function Header() {
     return (
-        <Container display="flex" alignItems="center" justifyContent="center" mt="50px">
+        <Container display="flex" alignItems="center" justifyContent="center" pt="50px">
             <Image boxSize='100px' src={Imagen1} alt='task' />
-            <Heading size='xl' ml="20px">Mis Tareas</Heading>
+            <Heading size='xl' ml="20px" color='white'>Mis Tareas</Heading>
         </Container>
     )
 }
