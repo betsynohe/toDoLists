@@ -31,16 +31,14 @@ function ContainerForm() {
     const tasksLocal = JSON.stringify(allNotes);
     localStorage.setItem("task", tasksLocal);
     return (
-        <Center display='flex'flexDirection='column'>
-            <Box bg='#c5f9f9' display='flex' justifyContent='center' alignItems='center' flexDirection='column' mt='50px'>
+        <Center display='flex' flexDirection='column'>
+            <Box bg='#c5f9f9' display='flex' justifyContent='center' alignItems='center' mt='50px' mr='0px'>
                 <Box display='flex'>
                     <Form setAllNotes={setAllNotes} setSelectedFilter={setSelectedFilter} />
                 </Box>
             </Box>
-            <Card bg='#c5f9f9' w='50%' display='flex' size='sm' mt='50px'>
-                <CardBody>
-                    <Stack divider={<StackDivider />} spacing='4'>
-                        <Box>
+            
+                        <Box bg='#c5f9f9' width={{md:"80%", lg:"50%"}}  size='sm' mt='50px'>
                         <Text fontSize='3xl' textAlign='center' mb='30px'>Lista de tareas</Text>
                             <Heading size='xs' textTransform='uppercase'>
                                 {filteredElements.map((note) => {
@@ -57,9 +55,7 @@ function ContainerForm() {
                                 })}
                             </Heading>
                         </Box>
-                    </Stack>
-                </CardBody>
-            </Card>
+               
         </Center>
 
 

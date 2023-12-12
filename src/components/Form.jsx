@@ -35,11 +35,9 @@ export default function Form({ setSelectedFilter, setAllNotes }) {
                         <WarningIcon w={4} h={4} color="red.500" /> Complete este campo.
                     </Text>
                 )}
-            <Box display='flex'>
+            <Box display={{ md: "flex" }}>
                 <FormLabel display="flex" mr='20px' alignItems="center">Agregue Nueva Tarea</FormLabel>
-                
-                <Input onChange={handleChange} variant='filled' borderColor='black' htmlSize={30} width='auto' type='text' name="tarea" value={task} placeholder="Agregue la tarea" />
-                
+                <Input onChange={handleChange} variant='filled' borderColor='black' htmlSize={{md:15, lg:30}} width='auto' type='text' name="tarea" value={task} placeholder="Agregue la tarea" />
                 <SelectForm setSelectedFilter={setSelectedFilter} />
             </Box>
             <FormControl display='flex' justifyContent='center' mt='25px' mb='15px'>
