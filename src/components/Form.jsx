@@ -1,11 +1,17 @@
 import { useState } from 'react';
-import { FormControl, FormLabel, Input, Button as ButtonChakra, Box } from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, Button as ButtonChakra, Box, Text } from '@chakra-ui/react'
 import SelectForm from './SelectForm';
+import { WarningIcon } from '@chakra-ui/icons'
 
 export default function Form({ setSelectedFilter, setAllNotes }) {
     const [task, setTask] = useState("");
+    const [isTaskEmpty, setIsTaskEmpty] = useState(false)
+
     const handleChange = (e) => {
         setTask(e.target.value);
+        if (isTaskEmpty) {
+            setIsTaskEmpty(false)
+        }
     };
     const handleSubmit = (e) => { 
         e.preventDefault();
@@ -17,14 +23,23 @@ export default function Form({ setSelectedFilter, setAllNotes }) {
             };
             setAllNotes((prevNotes) => [...prevNotes, newTask]);
             setTask("");
+        }else {
+            setIsTaskEmpty(true)
         }
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <FormControl  display="flex" m='30px' flexDirection='column'>
+        <form onSubmit={handleSubmit} >
+            <FormControl display="flex" m='30px' flexDirection='column'>
+                {isTaskEmpty && (
+                    <Text ml='120px'>
+                        <WarningIcon w={4} h={4} color="red.500" /> Complete este campo.
+                    </Text>
+                )}
             <Box display='flex'>
                 <FormLabel display="flex" mr='20px' alignItems="center">Agregue Nueva Tarea</FormLabel>
+                
                 <Input onChange={handleChange} variant='filled' borderColor='black' htmlSize={30} width='auto' type='text' name="tarea" value={task} placeholder="Agregue la tarea" />
+                
                 <SelectForm setSelectedFilter={setSelectedFilter} />
             </Box>
             <FormControl display='flex' justifyContent='center' mt='25px' mb='15px'>

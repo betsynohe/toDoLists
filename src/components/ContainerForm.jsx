@@ -41,7 +41,7 @@ function ContainerForm() {
                 <CardBody>
                     <Stack divider={<StackDivider />} spacing='4'>
                         <Box>
-                        <Text fontSize='3xl' textAlign='center'>Lista de tareas</Text>
+                        <Text fontSize='3xl' textAlign='center' mb='30px'>Lista de tareas</Text>
                             <Heading size='xs' textTransform='uppercase'>
                                 {filteredElements.map((note) => {
                                     return (

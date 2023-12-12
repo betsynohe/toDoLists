@@ -21,7 +21,7 @@ function ListTask({ task, id, setAllNotes, value, onCheckButtonClick }) {
     };
     return (
         <List id={id} display='flex' mt='10px' justifyContent='space-between'>
-            <ListItem display='flex' alignItems='center' style={{ textDecoration: check ? 'line-through' : 'none', color: check ? 'red' : 'black' }}>
+            <ListItem justifyContent='center' display='flex' alignItems='center' style={{ textDecoration: check ? 'line-through' : 'none', color: check ? 'red' : 'black' }}>
                 <ListIcon as={AttachmentIcon} color='black' mr='10px' ml='10px' />
                 {task}
             </ListItem>
