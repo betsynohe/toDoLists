@@ -11,9 +11,9 @@ export default function ModalDelete ({ onClose, setAllNotes, id, task, isOpen, o
       <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader>¿Esta seguro de querer eliminar la tarea: <span>{task}</span>?</ModalHeader>
           <ModalBody pb={6}>
-            <Text> ¿Esta seguro de querer eliminar <span>{task}</span>? Esta acción no podra deshacerse.</Text>
+            <Text as='b'> Esta acción no podra deshacerse.</Text>
           </ModalBody>
 
           <ModalFooter>
