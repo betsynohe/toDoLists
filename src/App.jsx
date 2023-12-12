@@ -1,8 +1,7 @@
-/* import { useState } from 'react'
-import { useFormik } from "formik"; */
 import ContainerForm from './components/ContainerForm'
 import Header from './components/Header'
-/* import Footer from './components/Footer' */
+import Footer from './components/Footer'
+import { Box } from '@chakra-ui/react';
 
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
     <>
       <Header />
       <ContainerForm />
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }
